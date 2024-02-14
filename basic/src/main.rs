@@ -29,9 +29,9 @@ fn main() {
 
     // arr 일 경우 arr[0] 식으로 접근 가능
     // 배열 크기 이상의 주소를 가져와 에러가 발생할 경우 Panic 처리를 해야 함
-    let arr = [1,2,3,4,5]; // let arr: [i32; 5] = [1,2,3,4,5];
+    let arr = [1, 2, 3, 4, 5]; // let arr: [i32; 5] = [1,2,3,4,5];
     let arr2 = [3; 5]; // let arr2 = [3,3,3,3,3];
-    // compound type -----------------------
+                       // compound type -----------------------
 
     // conditional & loop -----------------------
     if arr.len() <= 0 {
@@ -44,11 +44,10 @@ fn main() {
     let number = if condition { 5 } else { 6 };
     println!("The value of number is: {number}");
 
-
     // 반복문에는 loop(무한 루프), while, for 가 있음
     // loop label
     let mut counter = 0;
-    let result =  'first: loop {
+    let result = 'first: loop {
         counter += 1;
         if counter == 10 {
             break 'first counter * 2;
@@ -67,8 +66,6 @@ fn main() {
     }
     println!("LIFTOFF!!!");
     // conditional -----------------------
-
-
 }
 
 fn type_of<T>(_: &T) -> &'static str {
