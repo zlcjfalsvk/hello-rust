@@ -7,3 +7,9 @@
   - c 언어 처럼 문자열은 `""` 문자는 `''` 사용
 
 - compound type (tuple, array)
+
+- 반복문
+  - loop
+  - while
+    - 
+  - for
