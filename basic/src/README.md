@@ -11,5 +11,6 @@
 - 반복문
   - loop
   - while
-    - 
+    - 다른 lang 과 다르게 `do-while` 없음 (매크로 만들어서 사용 가능)
   - for
+    - 다른 lang 과 다르게 `for-of` 나 `for(;;)` 없음
