@@ -14,3 +14,8 @@
     - 다른 lang 과 다르게 `do-while` 없음 (매크로 만들어서 사용 가능)
   - for
     - 다른 lang 과 다르게 `for-of` 나 `for(;;)` 없음
+
+
+- Null
+  - Rust 는 null 개념이 없음
+    - 대신 enum 의 `Option<T>` 사용 가능
