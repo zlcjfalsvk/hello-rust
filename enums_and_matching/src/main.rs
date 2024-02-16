@@ -1,8 +1,11 @@
+// pub mod structs; // 부모 모듈에게 public 으로 하고 싶을 경우
 mod structs;
+
 
 use crate::enums::{Coin, IpAddrKind, Message};
 use std::fmt::Octal;
 use libs::type_of;
+
 use structs::IpAddr;
 
 
