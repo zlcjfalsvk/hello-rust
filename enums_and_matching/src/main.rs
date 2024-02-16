@@ -1,6 +1,6 @@
 mod structs;
 
-use crate::enums::{IpAddrKind, Message};
+use crate::enums::{Coin, IpAddrKind, Message};
 use std::fmt::Octal;
 use libs::type_of;
 use structs::IpAddr;
@@ -28,6 +28,22 @@ fn main() {
     println!("Some to i32: {:?} to {}", some_number, num);
     println!("num typeof is {}", type_of(&num));
     println!("None value {:?}", absent_number);
+
+
+    let coin = Coin::Quarter;
+
+    // match => if let 으로 또는 if let => match 처럼 만들 수 있음
+    let mut count = 0;
+    match coin {
+        Coin::Quarter(state) => println!("State quarter from {:?}!", state),
+        _ => count += 1,
+    }
+
+    if let Coin::Quarter(state) = coin {
+        println!("State quarter from {:?}!", state);
+    } else {
+        count += 1;
+    }
 }
 
 fn rout(ip_addr_kind: IpAddrKind) {}

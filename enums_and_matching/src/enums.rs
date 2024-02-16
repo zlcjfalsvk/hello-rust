@@ -16,3 +16,10 @@ pub enum Message {
     Write(String),
     ChangeColor(i32, i32, i32)
 }
+
+pub enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(Some),
+}
