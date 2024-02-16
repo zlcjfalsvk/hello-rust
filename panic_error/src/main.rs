@@ -50,6 +50,7 @@ fn main() {
 
 
 
+    let g = Guess::new(3);
 
 }
 

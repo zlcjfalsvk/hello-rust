@@ -6,3 +6,7 @@
 
 - Error 처리시 `?` shortcut 은 from 함수를 거친다
   - From trait 에 정의되어 있으며 어떤 값의 타입을 다른 타입으로 변환 하는데 사용
+
+
+- `panic!` 과 `Result<T,E>`
+  - `panic!` 은 에러 발생 시 복구 불가능
