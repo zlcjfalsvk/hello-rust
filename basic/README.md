@@ -10,6 +10,7 @@
 
 - 반복문
   - loop
+    - 여러 loop 를 사용할 경우 `loop label` 을 활용하여 특정 loop 를 종료 시킬 수 있음
   - while
     - 다른 lang 과 다르게 `do-while` 없음 (매크로 만들어서 사용 가능)
   - for
