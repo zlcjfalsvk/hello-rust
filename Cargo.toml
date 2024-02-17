@@ -1,4 +1,4 @@
-workspace = { members = ["3_basic", "4_ownership", "5_struct_module", "6_enums_and_matching", "7_module_system", "8_collections", "9_panic_error", "10_generic", "libs"] }
+workspace = { members = ["3_basic", "4_ownership", "5_struct_module", "6_enums_and_matching", "7_module_system", "8_collections", "9_panic_error", "10_1_generic", "libs"] }
 [package]
 name = "hello_cargo"
 version = "0.1.0"

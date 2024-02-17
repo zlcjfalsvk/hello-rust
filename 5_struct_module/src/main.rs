@@ -1,7 +1,7 @@
 use crate::structs::{AlwaysEqual, Color, Point, Rectangle, User};
 
-mod structs;
 mod methods;
+mod structs;
 
 fn main() {
     let mut user1 = build_user(String::from("cheolcheol@gmail.com"), "cheolcheol");
@@ -30,23 +30,24 @@ fn main() {
     // unit-like structs
     // let subject = AlwaysEqual;
 
-
     let rectangle = Rectangle {
         width: dbg!(10 * 2),
-        height: 300
+        height: 300,
     };
     // println!("rectangle area is {}", ares(&rectangle));
     // dbg!(ares(&rectangle)); // 함수 선언 방식
     dbg!(rectangle.area()); // 메서드 선언 방식
 
     if rectangle.width() {
-        println!("The rectangle has a nonzero width; it is {}", rectangle.width);
+        println!(
+            "The rectangle has a nonzero width; it is {}",
+            rectangle.width
+        );
     }
 
     let new_rectangle = Rectangle::square(10, 100);
     println!("new_rectangle area is {:?}", new_rectangle.area());
 }
-
 
 fn build_user(email: String, username: &str) -> User {
     User {
@@ -57,6 +58,6 @@ fn build_user(email: String, username: &str) -> User {
     }
 }
 
-fn  ares(rectangle: &Rectangle) -> u32 {
+fn ares(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }

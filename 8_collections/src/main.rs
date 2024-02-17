@@ -14,7 +14,6 @@ fn main() {
     // let does_not_exist = &v[100]; // panic 처리 해야 함
     // let does_not_exist = v.get(100); // None
 
-
     // let mut v = vec![1, 2, 3, 4, 5];
     // let first = &v[0];
     // v.push(6);
@@ -51,14 +50,13 @@ fn main() {
     let s = &hello[0..4]; // &hello[0..1] 일경우 panic 발생 => utf8 2바이트씩 저장하는데
     println!("{:?}", s); // Зд
 
-    let mut scores:HashMap<String, i32> = HashMap::new();
+    let mut scores: HashMap<String, i32> = HashMap::new();
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);
     let team_name = String::from("Blue");
     let score = scores.get(&team_name).copied().unwrap_or(0);
 
     println!("{:?}", score);
-
 
     let text = "hello world wonderful world";
 
@@ -71,7 +69,6 @@ fn main() {
 
     println!("{:?}", map);
     println!("{}", text);
-
 }
 
 #[derive(Debug)]

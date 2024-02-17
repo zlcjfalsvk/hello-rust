@@ -3,7 +3,6 @@
 //     V6,
 // }
 
-
 pub enum IpAddrKind {
     V4(u8, u8, u8, u8),
     V6(String),
@@ -14,7 +13,7 @@ pub enum Message {
     Quit,
     Move { x: i32, y: i32 },
     Write(String),
-    ChangeColor(i32, i32, i32)
+    ChangeColor(i32, i32, i32),
 }
 
 pub enum Coin {

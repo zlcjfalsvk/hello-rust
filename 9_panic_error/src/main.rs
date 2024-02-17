@@ -1,6 +1,6 @@
 use std::fs::File;
-use std::{fs, io};
 use std::io::{ErrorKind, Read};
+use std::{fs, io};
 
 fn main() {
     // panic!("crash and burn"); // panic 강제 발생 시키기
@@ -39,8 +39,8 @@ fn main() {
     );
 
     // unwrap 보다는 expect 를 좀 더 사용하자
-    let greeting_file = File::open("hello.txt")
-        .expect("hello.txt should be included in this project");
+    let greeting_file =
+        File::open("hello.txt").expect("hello.txt should be included in this project");
 
     // propagating
     let f = read_username_from_file();
@@ -48,10 +48,7 @@ fn main() {
         panic!("Err")
     }
 
-
-
     let g = Guess::new(3);
-
 }
 
 // propagating, 함수를 호출하는 쪽에서 에러 핸들링을 할 수 있게 함

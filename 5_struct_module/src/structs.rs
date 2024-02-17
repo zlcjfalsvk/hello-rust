@@ -19,5 +19,5 @@ pub struct AlwaysEqual;
 #[derive(Debug)]
 pub struct Rectangle {
     pub(crate) width: u32,
-    pub height: u32
+    pub height: u32,
 }

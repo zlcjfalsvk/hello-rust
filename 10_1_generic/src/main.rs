@@ -29,7 +29,7 @@ fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
 
 struct Point<T, U> {
     x: T,
-    y: U
+    y: U,
 }
 
 impl<T, U> Point<T, U> {
@@ -44,8 +44,6 @@ impl Point<i32, f64> {
         (self.x.powi(2) + self.y.powi(2)).sqrt()
     }
 }
-
-
 
 enum Option<T> {
     Some(T),
