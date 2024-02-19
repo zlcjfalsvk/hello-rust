@@ -15,6 +15,10 @@ name = "a_13_1_closures"
 version = "0.1.0"
 
 [[package]]
+name = "a_15_smart_pointer"
+version = "0.1.0"
+
+[[package]]
 name = "basic"
 version = "0.1.0"
 
