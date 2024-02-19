@@ -2,6 +2,8 @@
 
 - ownership, pointer, slice 는 컴파일 타임에 메모리 안정성을 보장하기 위함 
 
+- 변수가 스코프 밖으로 벗어나면 `drop` 함수 자동 호출
+
 - dangling pointer + 라이프타임
   - `&'static`
 
