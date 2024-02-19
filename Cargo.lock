@@ -7,6 +7,10 @@ name = "a_10_2_traits"
 version = "0.1.0"
 
 [[package]]
+name = "a_10_3_lifetime"
+version = "0.1.0"
+
+[[package]]
 name = "basic"
 version = "0.1.0"
 
