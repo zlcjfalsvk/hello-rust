@@ -9,3 +9,6 @@
 3. [clippy](https://github.com/rust-lang/rust-clippy)
     - Lint
     - command: `cargo clippy`
+
+4. [wasm-pack](https://rustwasm.github.io/wasm-pack/)
+   - Rust Wasm 빌드
