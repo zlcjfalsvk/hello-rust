@@ -1,4 +1,4 @@
-workspace = { members = ["a_3_basic", "a_4_ownership", "a_5_struct_module", "a_6_enums_and_matching", "a_7_module_system", "a_8_collections", "a_9_panic_error", "a_10_1_generic", "libs", "a_10_2_traits", "a_10_3_lifetime", "a_13_1_closures", "a_15_smart_pointer", "a_16_1_thread", "a_16_2_channel", "a_19_1_unsafe"] }
+workspace = { members = ["a_3_basic", "a_4_ownership", "a_5_struct_module", "a_6_enums_and_matching", "a_7_module_system", "a_8_collections", "a_9_panic_error", "a_10_1_generic", "libs", "a_10_2_traits", "a_10_3_lifetime", "a_13_1_closures", "a_15_smart_pointer", "a_16_1_thread", "a_16_2_channel", "a_19_1_unsafe", "b_async"] }
 [package]
 name = "hello_cargo"
 version = "0.1.0"
