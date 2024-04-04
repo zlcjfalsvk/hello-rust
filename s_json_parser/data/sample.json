@@ -9,7 +9,7 @@
     "ProjectUserMap": [
       {
         "userId": "660e200d26f174d80f8d0db4",
-        "porjectId": "660e200dcd542deb89946031",
+        "projectId": "660e200dcd542deb89946031",
         "Project": {
           "id": "660e200dbd9c03e947871f73",
           "name": "Spelter"
@@ -17,7 +17,7 @@
       },
       {
         "userId": "660e200d0b2582b4e00b8542",
-        "porjectId": "660e200df78f66108a3de5e6"
+        "projectId": "660e200df78f66108a3de5e6"
       }
     ]
   },
@@ -31,7 +31,7 @@
     "ProjectUserMap": [
       {
         "userId": "660e200d3bdb806140b30279",
-        "porjectId": "660e200d61ddf64de85b9f30",
+        "projectId": "660e200d61ddf64de85b9f30",
         "Project": {
           "id": "660e200d6ba07eb474af2f04",
           "name": "Whitmer"
@@ -39,7 +39,7 @@
       },
       {
         "userId": "660e200d24ee86a8afb553ea",
-        "porjectId": "660e200d9ed5d42fb77d1239",
+        "projectId": "660e200d9ed5d42fb77d1239",
         "Project": {
           "id": "660e200d2cb44c5313547d8c",
           "name": "Eastvale"
@@ -57,7 +57,7 @@
     "ProjectUserMap": [
       {
         "userId": "660e200de94d5fe7128e3ad1",
-        "porjectId": "660e200d1056c1a87c08be32",
+        "projectId": "660e200d1056c1a87c08be32",
         "Project": {
           "id": "660e200db30db3bb4d23c750",
           "name": "Cucumber"
@@ -75,7 +75,7 @@
     "ProjectUserMap": [
       {
         "userId": "660e200d5fb3e1bf71326b5a",
-        "porjectId": "660e200da17b8ec88fa97f0c",
+        "projectId": "660e200da17b8ec88fa97f0c",
         "Project": {
           "id": "660e200d0b7a19984401710a",
           "name": "Cataract"

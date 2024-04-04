@@ -48,7 +48,7 @@ fn main() {
         panic!("Err")
     }
 
-    let g = Guess::new(3);
+    // let g = Guess::new(3);
 }
 
 // propagating, 함수를 호출하는 쪽에서 에러 핸들링을 할 수 있게 함
