@@ -9,7 +9,7 @@ mod r#struct;
 // Json 을 struct 로 converting 해보자
 fn main() -> Result<(), io::Error> {
     let mut jsonStr = String::new();
-    File::open("s_json_parser/data/sample.json")?
+    File::open("s_json_parser/data/parsor_test.json")?
         .read_to_string(&mut jsonStr)?
         .to_string();
 
