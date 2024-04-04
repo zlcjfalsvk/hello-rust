@@ -1,6 +1,6 @@
-use std::time::Duration;
+use async_std::task;
 use std::thread;
-use async_std::task; // async-std 라이브러리 사용
+use std::time::Duration; // async-std 라이브러리 사용
 
 // 간단한 비동기 Future 구현
 #[derive(Debug)]

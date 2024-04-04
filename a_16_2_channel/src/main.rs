@@ -7,14 +7,14 @@ fn main() {
     let (tx, rx) = mpsc::channel();
     thread::spawn(move || {
         for i in 1..10 {
-
             let val = String::from("hi").add(" ").add(&*i.to_string());
             println!("{val}");
 
             tx.send(val).unwrap();
-
         }
-    }).join().unwrap();
+    })
+    .join()
+    .unwrap();
 
     // let received = rx.recv().unwrap();
     // println!("Got: {}", received); // hi 1
@@ -22,9 +22,6 @@ fn main() {
     rx.iter().for_each(|r| {
         println!("Got: {}", r);
     });
-
-
-
 
     let (tx, rx) = mpsc::channel();
 
@@ -61,5 +58,4 @@ fn main() {
     for received in rx {
         println!("Got: {}", received);
     }
-
 }
