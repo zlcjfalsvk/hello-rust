@@ -1,4 +1,5 @@
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
+use serde_json::{Map, Value};
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -28,4 +29,12 @@ pub struct ProjectUserMap {
 pub struct Project {
     pub id: String,
     pub name: String,
+}
+
+impl From<Map<String, Value>> for User {
+    fn from(map: Map<String, Value>) -> Self {
+        let user: User = serde_json::from_value(serde_json::Value::from(map)).unwrap();
+
+        user
+    }
 }
