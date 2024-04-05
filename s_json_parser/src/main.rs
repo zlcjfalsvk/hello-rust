@@ -2,8 +2,8 @@ use crate::r#struct::User;
 
 use serde_json::Value;
 use std::fs::File;
-use std::io;
 use std::io::Read;
+use std::{io, thread};
 
 mod r#struct;
 
@@ -12,12 +12,12 @@ const JSON_CHILDREN_KEY: &str = "children";
 // Json 을 struct 로 converting 해보자
 fn main() -> Result<(), io::Error> {
     let _pu = parse_test(String::from("s_json_parser/data/parser_test.json").as_str())?;
+
     let _njpu = nested_json_parse_test(
         String::from("s_json_parser/data/nested_parser_test.json").as_str(),
     )?;
 
     assert_eq!(_pu.len(), _njpu.len());
-
     Ok(())
 }
 
@@ -56,6 +56,31 @@ fn start_nested_json_parse_test<'a>(vec: &'a mut Vec<User>, json: &Value) -> &'a
         start_nested_json_parse_test(vec, item);
     }
 
+    vec
+}
+
+fn start_nested_json_parse_test_thread<'a>(
+    vec: &'a mut Vec<User>,
+    json: &Value,
+) -> &'a mut Vec<User> {
+    let mut map = json.as_object().unwrap().clone();
+    map.remove(JSON_CHILDREN_KEY);
+    // generate user
+    let user = User::from(map);
+    // push user to vec
+    vec.push(user);
+
+    let has_children = json.get(JSON_CHILDREN_KEY);
+    if has_children.is_none() {
+        return vec;
+    }
+
+    let children: Vec<Value> = has_children.unwrap().as_array().unwrap().clone();
+    for item in &children {
+        thread::scope(|s| {
+            s.spawn(|| start_nested_json_parse_test_thread(vec, item));
+        });
+    }
     vec
 }
 
