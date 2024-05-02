@@ -18,7 +18,7 @@ workspace = { members = [
     "b_async",
     "s_api_web_server",
     "s_json_parser"
-] }
+, "c_ct/a_very_big_sum"] }
 [package]
 name = "hello_cargo"
 version = "0.1.0"
