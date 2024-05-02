@@ -6,7 +6,11 @@
  */
 
 fn aVeryBigSum(ar: &[i64]) -> i64 {
-    ar.iter().sum()
+    // ar.iter().sum()
+    // ar.iter().cloned().reduce(|a, c| a + c).unwrap_or(0i64)
+    let mut sum = 0i64;
+    ar.iter().for_each(|x| sum += x);
+    sum
 }
 
 fn main() {
