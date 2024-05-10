@@ -34,7 +34,7 @@ fn main() {
                        // compound type -----------------------
 
     // conditional & loop -----------------------
-    if arr.len() <= 0 {
+    if arr.is_empty() {
         println!("arr length: {}", arr.len());
     } else if arr.len() - arr2.len() == 0 {
         println!("arr.len - arr2.len = {}", arr.len() - arr2.len());
