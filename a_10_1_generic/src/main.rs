@@ -41,7 +41,7 @@ impl<T, U> Point<T, U> {
 // 제네릭 타입에 대한 제약 지정 가능
 impl Point<i32, f64> {
     fn distance_from_origin(&self) -> f64 {
-        (self.x.powi(2) + self.y.powi(2)).sqrt()
+        (f64::from(self.x).powi(2) + self.y.powi(2)).sqrt()
     }
 }
 
