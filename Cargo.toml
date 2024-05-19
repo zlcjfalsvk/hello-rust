@@ -17,8 +17,9 @@ workspace = { members = [
     "a_19_1_unsafe",
     "b_async",
     "s_api_web_server",
-    "s_json_parser"
-, "c_ct/a_very_big_sum"] }
+    "s_json_parser",
+    "c_ct/a_very_big_sum",
+    "s_chat/server"] }
 [package]
 name = "hello_cargo"
 version = "0.1.0"
