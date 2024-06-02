@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use std::error::Error;
+use std::sync::{Arc, Mutex};
 
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::{TcpListener, TcpStream};
@@ -11,18 +12,23 @@ async fn main() -> Result<(), Box<dyn Error>> {
     println!("Start Server -----");
 
     // TODO
-    let mut room_name_map: Box<HashMap<&str, &str>> = Box::new(HashMap::new());
+    let room_name_map: Arc<Mutex<HashMap<String, String>>> = Arc::new(Mutex::new(HashMap::new()));
 
     loop {
         let (stream, _) = listener.accept().await?;
+        let map_clone = room_name_map.clone();
         tokio::spawn(async move {
-            process(stream).await.unwrap();
+            process(stream, map_clone).await.unwrap();
         });
     }
 }
 
-async fn process(mut stream: TcpStream) -> Result<(), Box<dyn Error>> {
-    set_room(&mut stream).await.unwrap();
+async fn process(
+    mut stream: TcpStream,
+    room_name_map: Arc<Mutex<HashMap<String, String>>>,
+) -> Result<(), Box<dyn Error>> {
+    set_room(&mut stream, room_name_map.clone()).await.unwrap();
+    println!("{:?}", room_name_map);
     loop {
         let mut buf = [0; 1024];
         let n = match stream.read(&mut buf).await {
@@ -47,14 +53,24 @@ async fn process(mut stream: TcpStream) -> Result<(), Box<dyn Error>> {
     }
 }
 
-async fn set_room(stream: &mut TcpStream) -> Result<(), Box<dyn Error>> {
+async fn set_room(
+    stream: &mut TcpStream,
+    room_name_map: Arc<Mutex<HashMap<String, String>>>,
+) -> Result<(), Box<dyn Error>> {
     let send_message = "Set your name: \n".to_string();
     stream.write_all(send_message.as_bytes()).await.unwrap();
 
     let mut buf = [0; 1024];
     let _ = stream.read(&mut buf).await.unwrap();
     let buf_str = String::from_utf8(Vec::from(buf))?;
-    let name = buf_str.split('\n').next().unwrap();
+
+    let name = buf_str.split('\n').next().unwrap().trim().to_string();
+
+    // TODO <ip_rooms : name>
+    // room_name_map
+    //     .lock()
+    //     .unwrap()
+    //     .insert(name.clone(), name.clone());
 
     Ok(())
 }
