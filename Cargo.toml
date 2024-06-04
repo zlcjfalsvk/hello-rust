@@ -19,7 +19,7 @@ workspace = { members = [
     "s_api_web_server",
     "s_json_parser",
     "c_ct/a_very_big_sum",
-    "s_chat/server"] }
+    "s_chat/server", "b_yaml_to_json"] }
 [package]
 name = "hello_cargo"
 version = "0.1.0"

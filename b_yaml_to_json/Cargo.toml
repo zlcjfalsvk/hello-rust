@@ -1,0 +1,9 @@
+[package]
+name = "b_yaml_to_json"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = "1.0.203"
+serde_json = "1.0.117"
+serde_yaml = "0.9.34+deprecated"
