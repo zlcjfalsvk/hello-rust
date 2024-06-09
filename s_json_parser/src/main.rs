@@ -1,6 +1,7 @@
 use crate::r#struct::User;
 
 use serde_json::Value;
+use std::collections::HashMap;
 use std::fs::File;
 use std::io::Read;
 use std::{io, thread};
@@ -17,6 +18,8 @@ fn main() -> Result<(), io::Error> {
         String::from("s_json_parser/data/nested_parser_test.json").as_str(),
     )?;
 
+    let _pu2 = parse_test_2(String::from("s_json_parser/data/parser_test_2.json").as_str())?;
+
     assert_eq!(_pu.len(), _njpu.len());
     Ok(())
 }
@@ -26,6 +29,25 @@ fn parse_test(path: &str) -> Result<Vec<User>, io::Error> {
     let converted_json: Vec<User> = serde_json::from_str(&json_str)?;
 
     Ok(converted_json)
+}
+
+// object type 의 key 에 있는 keys 조회
+fn parse_test_2(path: &str) -> Result<(), io::Error> {
+    let json_str = read_file(path)?;
+    let converted_json: HashMap<String, Value> = serde_json::from_str(&json_str)?;
+
+    converted_json
+        .get("obj")
+        .unwrap()
+        .as_object()
+        .unwrap()
+        .iter()
+        .for_each(|(k, v)| {
+            println!("{k}: {v}");
+            println!("----------------------");
+        });
+
+    Ok(())
 }
 
 fn nested_json_parse_test(path: &str) -> Result<Vec<User>, io::Error> {
