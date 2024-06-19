@@ -56,6 +56,9 @@ fn main() {
 
     let x: Result<u32, &str> = Err("Nothing here");
     assert_eq!(x.ok(), None);
+
+    let x: Option<u32> = Some(1);
+    assert_eq!(x.ok_or(0), Ok(1));
 }
 
 // propagating, 함수를 호출하는 쪽에서 에러 핸들링을 할 수 있게 함
