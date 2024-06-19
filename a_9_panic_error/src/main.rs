@@ -49,6 +49,13 @@ fn main() {
     }
 
     // let g = Guess::new(3);
+
+    // Result -> Option 으로 변경
+    let x: Result<u32, &str> = Ok(2);
+    assert_eq!(x.ok(), Some(2));
+
+    let x: Result<u32, &str> = Err("Nothing here");
+    assert_eq!(x.ok(), None);
 }
 
 // propagating, 함수를 호출하는 쪽에서 에러 핸들링을 할 수 있게 함
