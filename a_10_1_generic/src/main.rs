@@ -4,12 +4,12 @@ fn main() {
     let number_list = vec![34, 50, 25, 100, 65];
 
     let result = largest(&number_list);
-    println!("The largest number is {}", result);
+    println!("The largest number is {:?}", result);
 
     let char_list = vec!['y', 'm', 'a', 'q'];
 
     let result = largest(&char_list);
-    println!("The largest char is {}", result);
+    println!("The largest char is {:?}", result);
 
     let p = Point { x: 5, y: 10.1 };
     let p2 = Point { x: 6, y: 10.2 };
@@ -21,7 +21,7 @@ fn main() {
 }
 
 // 정렬 가능한 타입에 대해서만 허용
-fn largest<T: PartialOrd>(list: &[T]) -> &T {
+fn largest<T: PartialOrd>(list: &[T]) -> std::option::Option<&T> {
     let mut largest = &list[0];
 
     for item in list {
@@ -30,7 +30,7 @@ fn largest<T: PartialOrd>(list: &[T]) -> &T {
         }
     }
 
-    largest
+    Some(largest)
 }
 
 #[derive(Debug)]
@@ -54,27 +54,4 @@ impl<T: PartialOrd, U: PartialOrd> PartialOrd for Point<T, U> {
             other => other,
         }
     }
-}
-
-impl<T, U> Point<T, U> {
-    fn x(&self) -> &T {
-        &self.x
-    }
-}
-
-// 제네릭 타입에 대한 제약 지정 가능
-impl Point<i32, f64> {
-    fn distance_from_origin(&self) -> f64 {
-        (f64::from(self.x).powi(2) + self.y.powi(2)).sqrt()
-    }
-}
-
-enum Option<T> {
-    Some(T),
-    None,
-}
-
-enum Result<T, E> {
-    Ok(T),
-    Err(E),
 }
