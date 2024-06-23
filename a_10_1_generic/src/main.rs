@@ -15,7 +15,7 @@ fn main() {
 }
 
 // 정렬 가능한 타입에 대해서만 허용
-fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
+fn largest<T: PartialOrd>(list: &[T]) -> &T {
     let mut largest = &list[0];
 
     for item in list {
