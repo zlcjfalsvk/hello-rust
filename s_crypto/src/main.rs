@@ -1,11 +1,18 @@
+use chacha20poly1305::{
+    aead::{Aead, AeadCore, KeyInit, OsRng},
+    ChaCha20Poly1305,
+};
 use rsa::{Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
 
 fn main() {
-    asymmetric_encryption();
-    symmetric_encryption();
+    println!("start asymmetric_encryption_rsa");
+    asymmetric_encryption_rsa();
+    println!("-------------------------------");
+    println!("start symmetric_encryption_chacha20");
+    symmetric_encryption_chacha20().unwrap();
 }
 
-fn asymmetric_encryption() {
+fn asymmetric_encryption_rsa() {
     let mut rng = rand::thread_rng();
     let bits = 2048;
     let priv_key = RsaPrivateKey::new(&mut rng, bits).expect("failed to generate a key");
@@ -30,12 +37,25 @@ fn asymmetric_encryption() {
         .expect("failed to decrypt");
     assert_eq!(&data[..], &dec_data[..]);
 
-    println!(
-        "data: {:?}: dec_data: {:?}",
-        String::from_utf8(Vec::from(data)).unwrap(),
-        String::from_utf8(dec_data).unwrap(),
-    );
+    println!("dec_data: {:?}", String::from_utf8(dec_data).unwrap(),);
 }
 
-// TODO
-fn symmetric_encryption() {}
+fn symmetric_encryption_chacha20() -> Result<(), chacha20poly1305::Error> {
+    let key = ChaCha20Poly1305::generate_key(&mut OsRng);
+    let cipher = ChaCha20Poly1305::new(&key);
+    let nonce = ChaCha20Poly1305::generate_nonce(&mut OsRng); // 96-bits; unique per message
+
+    let data = b"hello world";
+    let ciphertext = cipher.encrypt(&nonce, data.as_ref())?;
+    let plaintext = cipher.decrypt(&nonce, ciphertext.as_ref())?;
+
+    println!(
+        "data: {:?}: enc_data: {:?}",
+        String::from_utf8(Vec::from(data)).unwrap(),
+        ciphertext
+    );
+
+    println!("dec_data: {:?}", String::from_utf8(plaintext).unwrap(),);
+
+    Ok(())
+}
