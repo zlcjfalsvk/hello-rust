@@ -1,7 +1,7 @@
 mod libs;
 mod traits;
 
-use crate::libs::{NewsArticle, Tweet};
+use crate::libs::{NewsArticle, Play, Tweet};
 use crate::traits::Summary;
 use std::fmt::{Debug, Display};
 
@@ -37,6 +37,10 @@ fn main() {
 
     // 타입이 특정 트레이트를 구현하는 경우에만 해당 타입에 트레이트를 구현
     let s = 3.to_string();
+
+    // 열거형 구현
+    let p: Play = Play::Ski;
+    p.summarize();
 }
 
 // pub fn notify(item: &impl Summary) {

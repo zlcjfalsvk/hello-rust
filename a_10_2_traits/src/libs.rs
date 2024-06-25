@@ -20,3 +20,10 @@ impl Summary for Tweet {
         format!("{}: {}", self.username, self.content)
     }
 }
+
+pub enum Play {
+    Ski,
+    Soccer,
+}
+
+impl Summary for Play {}
