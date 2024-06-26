@@ -43,6 +43,10 @@ fn main() {
         part: first_sentence,
     };
     println!("{}", i.level());
+
+    let s: &'static str = "I have a static lifetime.";
+    let ss: &'static [&'static str] = &["Hello", "World", "!"];
+    let ss: &'static [&'static i32] = &[&1, &2, &3];
 }
 
 // 함수 시그니처에서 lifetime 명시
