@@ -49,9 +49,19 @@ fn main() {
     let ss: &'static [&'static i32] = &[&1, &2, &3];
 }
 
+fn static_str() -> &'static str {
+    "I have a static lifetime"
+}
+
+fn unsafe_static() -> &'static str {
+    let s = String::from("Hello").as_str();
+    &s // 컴파일 오류 발생: s는 함수가 끝나면 스코프를 벗어남
+}
+
 // 함수 시그니처에서 lifetime 명시
 // 함수가 반환하는 참조자의 라이프타임은 함수 인수로서 참조된 값들의 라이프타임 중 작은 것과 동일
 fn longest<'a>(str1: &'a str, str2: &'a str) -> &'a str {
+    let a = static_str();
     if str1.len() > str2.len() {
         str1
     } else {
