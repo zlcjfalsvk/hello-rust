@@ -1,4 +1,8 @@
 use std::fmt::Display;
+
+// 메모리에 할당
+static HELLO_WORLD: &str = "Hello, world!";
+
 struct ImportantExcerpt<'a> {
     part: &'a str,
 }
