@@ -5,5 +5,5 @@ edition = "2021"
 
 [dependencies]
 serde = "1.0.203"
-serde_json = "1.0.117"
+serde_json = "1.0.120"
 serde_yaml = "0.9.34+deprecated"
