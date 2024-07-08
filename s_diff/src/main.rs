@@ -13,6 +13,9 @@ fn json_patch() {
     // Remove(RemoveOperation { path: "/tags/1" }),
     // Replace(ReplaceOperation { path: "/title", value: String("Hello!") })])
     println!("{:?}", p);
+    println!("----------------------");
+    let patch_to_json = json!(p);
+    println!("{:?}", serde_json::to_string(&patch_to_json).unwrap());
 }
 
 fn get_json_original() -> Value {
