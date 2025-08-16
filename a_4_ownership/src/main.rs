@@ -42,7 +42,7 @@ fn main() {
     let world = &s[6..s.len()]; // ==&s[6..];
                                 // let helloWorld = &s[..]; // == &s[0..s.len()];
 
-    // deref coercions (역참조 강제) 를 활용한 param 에 &String, &str 모두 받기 -------------------
+    // ===== Deref Coercion (역참조 강제 변환) =====
     let my_string = String::from("hello world");
     // `first_word`는 `String`의 일부 혹은 전체 슬라이스에 대해 작동합니다
     let word = first_word_for_deref(&my_string[0..6]);
@@ -61,7 +61,7 @@ fn main() {
     // 아래의 코드도 슬라이스 문법 없이 작동합니다!
     let word = first_word_for_deref(my_string_literal);
 
-    // deref coercions (역참조 강제) 를 활용한 param 에 &String, &str 모두 받기 -------------------
+    // ===== Deref Coercion (역참조 강제 변환) =====
 }
 
 fn gives_ownership() -> String {
